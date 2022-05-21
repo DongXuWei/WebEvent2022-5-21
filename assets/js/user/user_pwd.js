@@ -34,7 +34,7 @@ $(function() {
                 setTimeout(() => {
                     localStorage.removeItem('token');
                     // 跳转有问题
-                    // location.href = '../login.html';
+                    window.parent.location.href = '../login.html';
                 }, 1000)
             }
         })
