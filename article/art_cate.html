@@ -53,34 +53,9 @@
         {{/each}}
     </script>
 
-    <!-- 添加文章类别的模板 -->
-    <script type="text/html" id="dialog-add">
-        <form class="layui-form" id="form-add" action="">
-            <div class="layui-form-item">
-                <label class="layui-form-label">分类名称</label>
-                <div class="layui-input-block">
-                    <input type="text" name="cate_name" required lay-verify="required" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">分类别名</label>
-                <div class="layui-input-block">
-                    <input type="text" name="cate_alias" required lay-verify="required" placeholder="请输入分类别名" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                </div>
-            </div>
-        </form>
-    </script>
-
-
-    <!-- 编辑文章类别的模板 -->
-    <script type="text/html" id="dialog-edit">
-        <form class="layui-form" id="form-edit" lay-filter="form-edit">
+    <!-- 添加/编辑 文章类别的模板 -->
+    <script type="text/html" id="dialog-info">
+        <form class="layui-form" id="form-info" lay-filter='form-val'>
             <input type="hidden" name='id'>
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
@@ -96,7 +71,8 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+                    <button class="layui-btn" lay-submit lay-filter="formDemo" id="sure">确认添加</button>
+                    <button type="button" class="layui-btn layui-btn-primary" id="btn_reset">重置</button>
                 </div>
             </div>
         </form>
