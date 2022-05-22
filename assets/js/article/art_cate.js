@@ -108,21 +108,22 @@ $(function() {
     $('tbody').on('click', '#btn_del', function() {
         //获取id
         let id = $(this).attr('data-id');
-        //发起请求根据id删除
-        $.ajax({
-            method: 'DELETE',
-            url: "/my/cate/del?id=" + id,
-            success(res) {
-                if (res.code !== 0) {
-                    return layui.layer.msg(res.message)
+        layui.layer.confirm('确定删除嘛?', { icon: 3, title: '提示' }, function(index) {
+            //发起请求根据id删除
+            $.ajax({
+                method: 'DELETE',
+                url: "/my/cate/del?id=" + id,
+                success(res) {
+                    if (res.code !== 0) {
+                        return layui.layer.msg(res.message)
+                    }
+                    //成功 提示 刷新
+                    layui.layer.msg(res.message)
+                    getCateList();
                 }
-                //成功 提示 刷新
-                layui.layer.msg(res.message)
-                getCateList();
-            }
+            })
         })
     })
-
 })
 
 //1、获取文章分类列表
