@@ -59,7 +59,6 @@ $(function() {
         art_state = '草稿';
     })
 
-
     //7、定义发布文章的方法
     function publishCate(fd) {
         $.ajax({
@@ -122,10 +121,6 @@ $(function() {
                     //将文件对象存储到fd中
                     fd.append('cover_img', blob);
                     //发起请求 
-                    console.log('------------')
-                    fd.forEach(item => {
-                        console.log(item)
-                    })
                     UpdateArticle(fd);
                 })
         })
@@ -168,8 +163,6 @@ $(function() {
             contentType: false,
             processData: false,
             success(res) {
-                console.log('------------')
-                console.log(res)
                 if (res.code !== 0) {
                     return layui.layer.msg(res.message)
                 }

@@ -152,6 +152,4 @@ $(function() {
         //跳转页面
         location.href = './art_pub.html';
     })
-
-    let EditCateIndex = null;
 })
