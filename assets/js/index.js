@@ -11,6 +11,11 @@ $(function() {
             layer.close(index);
         });
     })
+
+    //只要点击了发布文章 就清空表单所有值
+    $('#pub').on('click', function() {
+
+    })
 })
 
 //1、获取登录用户的信息
@@ -45,3 +50,8 @@ function renderIco(user) {
         $('.text-avatar').html(first).show();
     }
 }
+
+//点击这个就清空token跳转
+$('#pub').on('click', function() {
+    localStorage.removeItem('id');
+})

@@ -35,7 +35,7 @@
             <table class="layui-table">
                 <colgroup>
                     <col>
-                    <col width="200">
+                    <col width="250">
                     <col width="180">
                     <col width="150">
                     <col width="150">
@@ -62,8 +62,8 @@
     <script type="text/html" id="tpl-table">
         {{each data}}
         <tr>
-            <td>{{$value.title}}</td>
-            <td>{{$value.pub_date}}</td>
+            <td class="td">{{$value.title}}</td>
+            <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>{{$value.cate_name}}</td>
             <td>

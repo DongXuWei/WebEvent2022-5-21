@@ -16,7 +16,6 @@ $(function() {
             content: $('#dialog-info').html()
         })
     })
-
     let indexEdit = null;
     let id = 0;
     //3、点击编辑按钮  利用事件委托
