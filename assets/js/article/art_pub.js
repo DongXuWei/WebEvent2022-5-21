@@ -26,10 +26,11 @@ $(function() {
     let $image = $('#image')
         //  裁剪选项
     let options = {
-            aspectRatio: 400 / 280,
-            preview: '.img-preview'
-        }
-        //  初始化裁剪区域
+        aspectRatio: 400 / 280,
+        preview: '.img-preview'
+    }
+
+    //  初始化裁剪区域
     $image.cropper(options)
 
     //3、点击选择封面的时候模拟点击上传文件按钮
@@ -99,6 +100,15 @@ $(function() {
                 }
                 //成功 通过form.val赋值
                 layui.form.val('formData', res.data);
+                console.log(res.data);
+                let url = res.data.cover_img;
+                // cover_img: "/uploads/a70188c48ce2ef6a5c2ef841f57351f3.jpg"
+                let imgurl = `http://www.liulongbin.top:3008${url}`;
+                //需要重新初始化裁剪区域
+                $image
+                    .cropper('destroy') // 销毁旧的裁剪区域
+                    .attr('src', imgurl) // 重新设置图片路径
+                    .cropper(options) // 重新初始化裁剪区域
             }
         })
 
@@ -125,8 +135,6 @@ $(function() {
                 })
         })
     } else {
-        //清空表单值
-        $('#pubart')[0].reset();
         //点击发布文章进来的
         //6、监听表单的提交事件
         $('#pubart').on('submit', function(e) {
