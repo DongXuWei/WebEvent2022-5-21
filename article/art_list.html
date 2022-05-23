@@ -62,7 +62,7 @@
     <script type="text/html" id="tpl-table">
         {{each data}}
         <tr>
-            <td class="td">{{$value.title}}</td>
+            <td class="td"><a href="javascript:;" class="title_cont" data-id="{{$value.id}}">{{$value.title}}</a></td>
             <td>{{$value.pub_date|dataFormat}}</td>
             <td>{{$value.state}}</td>
             <td>{{$value.cate_name}}</td>
@@ -81,6 +81,48 @@
         {{each data}}
         <option value="{{$value.id}}">{{$value.cate_name}}</option>
         {{/each}}
+    </script>
+
+    <!-- 查看文章的模板结构 -->
+    <script type="text/html" id='tpl_cont'>
+        <div class="layui-card-body">
+            <input type="hidden" name='id'>
+            <!-- 文章标题 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章标题：</label>
+                <label class="layui-form-label">111111</label>
+            </div>
+            <!-- 文章类别 -->
+            <div class="layui-form-item">
+                <label class="layui-form-label">文章标题：</label>
+                <label class="layui-form-label">222222</label>
+            </div>
+            <!-- 文章内容 -->
+            <div class="layui-form-item">
+                <!-- 左侧的 label -->
+                <label class="layui-form-label">文章内容：</label>
+                <div class="layui-input-block">
+                    <label class="layui-form-label">33333</label>
+                </div>
+            </div>
+            <!-- 文章封面 -->
+            <div class="layui-form-item">
+                <!-- 左侧的 label -->
+                <label class="layui-form-label">文章封面：</label>
+                <!-- 选择封面区域 -->
+                <div class="layui-input-block cover-box">
+                    <!-- 左侧裁剪区域 -->
+                    <div class="cover-left" style="width: 500px; height: 500px;">
+                        <img id="image" style="width: 100%; height: 100%;" src="../assets/images/sample.jpg" />
+                    </div>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <!-- <div class="layui-input-block"> -->
+                <button type="button" class="layui-btn layui-btn layui-btn-fluid layui-btn-lg layui-btn" id="close">关 闭</button>
+                <!-- </div> -->
+            </div>
+        </div>
     </script>
 
     <script src="../assets/lib/layui/layui.all.js"></script>

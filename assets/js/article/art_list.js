@@ -41,6 +41,7 @@ $(function() {
                 let str = template('tpl-table', res)
                 $('tbody').html(str);
                 layui.form.render();
+                $('.title_cont').css('color', 'red')
                 renderPage(res.total)
             }
         })
@@ -151,5 +152,33 @@ $(function() {
         localStorage.setItem('id', id);
         //跳转页面
         location.href = './art_pub.html';
+    })
+
+    //7、点击文章标题查看文章
+    $('tbody').on('click', '.title_cont', function() {
+        let title_cont = null;
+        let id = $(this).attr('data-id');
+        //获取编辑按钮的id
+        id = $(this).attr('data-id');
+        title_cont = layui.layer.open({
+            type: 1,
+            area: ['800px', '900px'],
+            title: '文章信息',
+            content: $('#tpl_cont').html()
+        })
+
+        //发起请求获取数据
+        $.ajax({
+            method: 'GET',
+            url: '/my/article/info?id=' + id,
+            success(res) {
+                if (res.code !== 0) {
+                    return layui.layer.msg(res.message)
+                }
+                //成功
+                let str = template('tpl_cont', res.data)
+
+            }
+        })
     })
 })
